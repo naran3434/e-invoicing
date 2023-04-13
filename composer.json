@@ -1,0 +1,24 @@
+{
+    "name": "naran3434/e-invoicing",
+    "description": "GST e-invoicing API integrations",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Naran3434\\EInvoicing\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Naran",
+            "email": "naran3434@gmail.com"
+        }
+    ],
+    "require": {
+        "mashape/unirest-php": "^3.0",
+        "ext-http": "*"
+    },
+    "require-dev": {
+
+    }
+}
