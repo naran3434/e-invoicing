@@ -7,13 +7,30 @@ use ErrorException;
 class Response
 {
 
+    /**
+     * @var
+     */
     public $code;
 
+    /**
+     * @var
+     */
     public $body;
 
+    /**
+     * @var
+     */
     public $raw_body;
 
+    /**
+     * @var
+     */
     public $headers;
+
+    /**
+     * @var
+     */
+    public $flag;
 
     /**
      * @param $response
@@ -23,6 +40,7 @@ class Response
         $this->body = $response->body;
         $this->raw_body = $response->raw_body;
         $this->headers = $response->headers;
+        $this->flag = $response->body->flag;
     }
 
     /**
