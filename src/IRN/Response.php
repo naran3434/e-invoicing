@@ -48,4 +48,18 @@ class Response
         return $this->body->response_data->Irn;
     }
 
+    /**
+     * @return mixed
+     */
+    public function error(){
+        return $this->body->Error;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function info(){
+        return $this->body->infodtls;
+    }
+
 }
