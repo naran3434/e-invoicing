@@ -53,7 +53,7 @@ class FormBuilder
      * @param string $igst
      * @return void
      */
-    public function setTransaction(string $scheme = 'GST', string $type = 'B2B', string $reverse = 'N', $gstin = null, string $igst = 'N'){
+    public function setTransaction(string $igst = 'N', string $scheme = 'GST', string $type = 'B2B', string $reverse = 'N', $gstin = null){
         $this->transactionDetails = [
             'TaxSch'        => $scheme,
             'SupTyp'        => $type,
@@ -69,7 +69,7 @@ class FormBuilder
      * @param string|null $date
      * @return void
      */
-    public function setDocument($invoiceNo, string $type = 'INV', string $date = null){
+    public function setDocument($invoiceNo, string $date = null, string $type = 'INV'){
         $this->documentDetails = [
             'Typ'       => $type,
             'No'        => $invoiceNo,
@@ -77,8 +77,19 @@ class FormBuilder
         ];
     }
 
+    /**
+     * @param $gstin
+     * @param $legalName
+     * @param $address
+     * @param $location
+     * @param $tradeName
+     * @param $pinCode
+     * @param $phone
+     * @param $email
+     * @return void
+     */
     public function setBuyer(
-        $gstin, $legalName, $address, $location, $state, $tradeName = null, $pinCode = null, $phone = null, $email = null
+        $gstin, $legalName, $address, $location, $tradeName = null, $pinCode = null, $phone = null, $email = null
     ){
         $this->buyerDetails = [
             'Gstin'             => $gstin,
@@ -86,7 +97,7 @@ class FormBuilder
             'Pos'               => substr($gstin, 0, 2),
             'Addr1'             => $address,
             'Loc'               => $location,
-            'Stcd'              => $state
+            'Stcd'              => substr($gstin, 0, 2)
         ];
 
         if($tradeName) { $this->buyerDetails['TrdNm'] = $tradeName; }
@@ -101,7 +112,6 @@ class FormBuilder
      * @param $legalName
      * @param $address
      * @param $location
-     * @param $state
      * @param $tradeName
      * @param $pinCode
      * @param $phone
@@ -109,7 +119,7 @@ class FormBuilder
      * @return void
      */
     public function setSeller(
-        $gstin, $legalName, $address, $location, $state, $tradeName = null, $pinCode = null, $phone = null, $email = null
+        $gstin, $legalName, $address, $location, $tradeName = null, $pinCode = null, $phone = null, $email = null
     ){
         $this->sellerDetails = [
             'Gstin'             => $gstin,
@@ -117,7 +127,7 @@ class FormBuilder
             'Pos'               => substr($gstin, 0, 2),
             'Addr1'             => $address,
             'Loc'               => $location,
-            'Stcd'              => $state
+            'Stcd'              => substr($gstin, 0, 2)
         ];
 
         if($tradeName) { $this->sellerDetails['TrdNm'] = $tradeName; }
@@ -141,7 +151,7 @@ class FormBuilder
      * @return void
      */
     public function addItems(
-        $productNo, $description, $quantity, $price, $hsn, int $gstRate = 18, string $isService = 'N', string $unit = 'Nos', int $freeQuantity = 0, int $discount = 0
+        $productNo, $description, $quantity, $price, $hsn, string $isService = 'N',  int $discount = 0, int $gstRate = 18, string $unit = 'Nos', int $freeQuantity = 0
     ){
         $amount = ($quantity * $price) - $discount;
         $igst = 0;
