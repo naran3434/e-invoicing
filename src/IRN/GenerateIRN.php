@@ -25,11 +25,11 @@ class GenerateIRN
 
 
     /**
-     * @param $body
+     * @param FormBuilder $builder
      * @return Response
      */
-    public function generate($body): Response {
-        return new Response(Request::post($this->url, $this->headers, $body));
+    public function generate(FormBuilder $builder): Response {
+        return new Response(Request::post($this->url, $this->headers, $builder->toArray()));
     }
 
 }

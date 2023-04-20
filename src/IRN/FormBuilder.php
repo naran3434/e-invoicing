@@ -235,4 +235,19 @@ class FormBuilder
         ];
         return json_encode($data);
     }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array {
+        return [
+            'Version'       => $this->version,
+            'TranDtls'      => $this->transactionDetails,
+            'DocDtls'       => $this->documentDetails,
+            'BuyerDtls'     => $this->buyerDetails,
+            'SellerDtls'    => $this->sellerDetails,
+            'ItemList'      => $this->itemList,
+            'ValDtls'       => $this->itemTotal
+        ];
+    }
 }
