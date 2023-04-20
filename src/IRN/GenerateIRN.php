@@ -29,7 +29,7 @@ class GenerateIRN
      * @return Response
      */
     public function generate(FormBuilder $builder): Response {
-        return new Response(Request::post($this->url, $this->headers, $builder->toArray()));
+        return new Response(Request::post($this->url, $this->headers, $builder->toJson()));
     }
 
 }
