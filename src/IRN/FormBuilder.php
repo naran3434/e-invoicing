@@ -103,7 +103,7 @@ class FormBuilder
         if($tradeName) { $this->buyerDetails['TrdNm'] = $tradeName; }
         if($pinCode) { $this->buyerDetails['Pin'] = $pinCode; }
         if($phone) { $this->buyerDetails['Ph'] = $phone; }
-        if($email) { $this->buyerDetails['Em'] = $pinCode; }
+        if($email) { $this->buyerDetails['Em'] = $email; }
     }
 
 
@@ -133,7 +133,7 @@ class FormBuilder
         if($tradeName) { $this->sellerDetails['TrdNm'] = $tradeName; }
         if($pinCode) { $this->sellerDetails['Pin'] = $pinCode; }
         if($phone) { $this->sellerDetails['Ph'] = $phone; }
-        if($email) { $this->sellerDetails['Em'] = $pinCode; }
+        if($email) { $this->sellerDetails['Em'] = $email; }
     }
 
 
