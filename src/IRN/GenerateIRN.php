@@ -9,7 +9,7 @@ class GenerateIRN
     /**
      * @var array
      */
-    protected $headers = array('Accept' => 'application/json');
+    protected $headers = array('Content-Type' => 'application/json');
 
     /**
      * @var string
