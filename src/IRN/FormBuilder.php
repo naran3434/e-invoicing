@@ -158,7 +158,7 @@ class FormBuilder
         $sgst = 0;
         $cgst = 0;
 
-        if($this->transactionDetails['IgstOnIntra'] === 'Y'){
+        if(substr($this->sellerDetails['Gstin'], 0, 2) != substr($this->buyerDetails['Gstin'], 0, 2)){
             $igst = ($amount * $gstRate)/100;
         } else {
             $sgst = ($amount * ($gstRate/2))/100;
