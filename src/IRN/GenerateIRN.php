@@ -14,7 +14,7 @@ class GenerateIRN
     /**
      * @var string
      */
-    protected $url = 'https://testapi.mygstcafe.com/eicore/v1.03/Invoice';
+    protected $url = 'https://api.mygstcafe.com/eicore/v1.03/Invoice';
 
     /**
      * @param $headers
