@@ -29,6 +29,10 @@ class GenerateIRN
      * @return Response
      */
     public function generate(FormBuilder $builder): Response {
+        // Disable verification only for this single call
+        Request::curlOpt(CURLOPT_SSL_VERIFYPEER, false);
+        Request::curlOpt(CURLOPT_SSL_VERIFYHOST, false);
+        
         return new Response(Request::post($this->url, $this->headers, $builder->toJson()));
     }
 
